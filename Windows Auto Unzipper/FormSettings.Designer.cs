@@ -37,7 +37,7 @@ namespace Windows_Auto_Unzipper
             this.btnChangeDirectory = new System.Windows.Forms.Button();
             this.labelTargetDirectory = new System.Windows.Forms.Label();
             this.labelTargetDirectoryHeader = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipTargetDirectory = new System.Windows.Forms.ToolTip(this.components);
             this.labelStartMode = new System.Windows.Forms.Label();
             this.comboBoxStartMode = new System.Windows.Forms.ComboBox();
             this.labelAutoLaunch = new System.Windows.Forms.Label();
@@ -176,7 +176,7 @@ namespace Windows_Auto_Unzipper
         private System.Windows.Forms.Button btnChangeDirectory;
         private System.Windows.Forms.Label labelTargetDirectory;
         private System.Windows.Forms.Label labelTargetDirectoryHeader;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTipTargetDirectory;
         private System.Windows.Forms.Label labelStartMode;
         private System.Windows.Forms.ComboBox comboBoxStartMode;
         private System.Windows.Forms.Label labelAutoLaunch;

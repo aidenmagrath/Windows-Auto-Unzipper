@@ -21,6 +21,7 @@ namespace Windows_Auto_Unzipper
             this.labelTargetDirectory.Text = this.context.GetTargetFolder();
             this.comboBoxStartMode.Text = Settings.Default.StartMode;
             this.checkBoxAutoLaunch.Checked = Settings.Default.AutoLaunch;
+            this.toolTipTargetDirectory.SetToolTip(this.labelTargetDirectory, this.labelTargetDirectory.Text);
         }
         private void Form1_Resize(Object sender, EventArgs e)
         {
@@ -54,7 +55,7 @@ namespace Windows_Auto_Unzipper
             if (this.directoryBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 this.labelTargetDirectory.Text = this.directoryBrowserDialog.SelectedPath;
-                this.toolTip1.SetToolTip(this.labelTargetDirectory, this.directoryBrowserDialog.SelectedPath);
+                this.toolTipTargetDirectory.SetToolTip(this.labelTargetDirectory, this.directoryBrowserDialog.SelectedPath);
             }
         }
 
