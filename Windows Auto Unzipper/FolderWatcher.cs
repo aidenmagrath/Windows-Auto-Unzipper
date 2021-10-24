@@ -10,7 +10,6 @@ namespace Windows_Auto_Unzipper
     {
         private UnzipperContext context;
         private FileSystemWatcher watcher;
-        private bool isWatching = false;
 
         public FolderWatcher(UnzipperContext context)
         {
