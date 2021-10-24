@@ -43,20 +43,13 @@ namespace Windows_Auto_Unzipper
 
             this.InitializeContextMenu();
 
-            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (Settings.Default.AutoLaunch)
             {
-                if (rkApp.GetValue(Application.ProductName) == null)
-                {
-                    rkApp.SetValue(Application.ProductName, Application.ExecutablePath);
-                }
+                RegistryHelper.EnableAutoRun();
             }
             else
             {
-                if (rkApp.GetValue(Application.ProductName) != null)
-                {
-                    rkApp.DeleteValue(Application.ProductName, false);
-                }
+                RegistryHelper.DisableAutoRun();
             }
         }
 
