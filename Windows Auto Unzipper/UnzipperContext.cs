@@ -1,10 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Windows_Auto_Unzipper.Properties;
 
@@ -12,23 +9,23 @@ namespace Windows_Auto_Unzipper
 {
     class UnzipperContext : ApplicationContext
     {
+        private Form settingsForm;
         private NotifyIcon trayIcon;
+        private FolderWatcher folderWatcher;
+
         private ContextMenuStrip menu;
         private ToolStripMenuItem menuItemToggleRunning;
         private ToolStripMenuItem menuItemSettings;
         private ToolStripMenuItem menuItemExit;
 
-        private Form settingsForm;
-
-        private FolderWatcher folderWatcher;
         private string location = UserFolders.GetPath(UserFolder.Downloads);
 
         public UnzipperContext()
         {
-            trayIcon = new NotifyIcon();
-            trayIcon.Icon = Windows_Auto_Unzipper.Properties.Resources.icon;
-            trayIcon.Visible = true;
-            trayIcon.DoubleClick += (sender, e) => ShowSettings();
+            this.trayIcon = new NotifyIcon();
+            this.trayIcon.Icon = Windows_Auto_Unzipper.Properties.Resources.icon;
+            this.trayIcon.Visible = true;
+            this.trayIcon.DoubleClick += (sender, e) => this.ShowSettings();
 
             if (String.IsNullOrEmpty(Settings.Default.TargetFolder))
             {
@@ -36,15 +33,15 @@ namespace Windows_Auto_Unzipper
                 Settings.Default.Save();
             }
 
-            SetTargetFolder(Settings.Default.TargetFolder);
+            this.SetTargetFolder(Settings.Default.TargetFolder);
 
             if (Settings.Default.StartMode == "Running" || (Settings.Default.StartMode == "Remember from last session" && Settings.Default.LastRunningMode == "Running"))
             {
-                folderWatcher.Start();
+                this.folderWatcher.Start();
             }
 
 
-            InitializeContextMenu();
+            this.InitializeContextMenu();
 
             RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (Settings.Default.AutoLaunch)
@@ -63,27 +60,28 @@ namespace Windows_Auto_Unzipper
             }
         }
 
-        public void ShowSettings() {
+        public void ShowSettings()
+        {
             if (Application.OpenForms.OfType<FormSettings>().Any())
             {
-                if (settingsForm == null)
+                if (this.settingsForm == null)
                 {
-                    settingsForm = Application.OpenForms.OfType<FormSettings>().First();
+                    this.settingsForm = Application.OpenForms.OfType<FormSettings>().First();
                 }
 
-                settingsForm.Show();
-                settingsForm.Visible = true;
-                settingsForm.WindowState = FormWindowState.Normal;
-                settingsForm.BringToFront();
+                this.settingsForm.Show();
+                this.settingsForm.Visible = true;
+                this.settingsForm.WindowState = FormWindowState.Normal;
+                this.settingsForm.BringToFront();
 
             }
             else
             {
-                settingsForm = new FormSettings(this);
-                settingsForm.Show();
+                this.settingsForm = new FormSettings(this);
+                this.settingsForm.Show();
             }
         }
-        
+
 
         private void menu_Openining(Object sender, CancelEventArgs e)
         {
@@ -129,8 +127,8 @@ namespace Windows_Auto_Unzipper
 
         public void Close()
         {
-            folderWatcher.Dispose();
-            trayIcon.Dispose();
+            this.folderWatcher.Dispose();
+            this.trayIcon.Dispose();
             Application.Exit();
         }
 
@@ -141,9 +139,9 @@ namespace Windows_Auto_Unzipper
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
-            if (folderWatcher != null)
+            if (this.folderWatcher != null)
             {
-                folderWatcher.Dispose();
+                this.folderWatcher.Dispose();
             }
         }
 
@@ -178,7 +176,7 @@ namespace Windows_Auto_Unzipper
             this.menu.Items.AddRange(new ToolStripItem[] { this.menuItemToggleRunning, this.menuItemSettings, this.menuItemExit });
 
             this.menu.ResumeLayout(false);
-            trayIcon.ContextMenuStrip = this.menu;
+            this.trayIcon.ContextMenuStrip = this.menu;
 
         }
 

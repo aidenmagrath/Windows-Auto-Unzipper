@@ -1,12 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Windows_Auto_Unzipper.Properties;
 
@@ -19,67 +12,69 @@ namespace Windows_Auto_Unzipper
         public FormSettings(ApplicationContext context)
         {
             this.context = (UnzipperContext)context;
-            InitializeComponent();
+            this.InitializeComponent();
 
         }
 
-        private void LoadSettings() {
-            labelTargetFolder.Text = this.context.GetTargetFolder();
-            comboBoxStartMode.Text = Settings.Default.StartMode;
-            checkBoxAutoLaunch.Checked = Settings.Default.AutoLaunch;
+        private void LoadSettings()
+        {
+            this.labelTargetFolder.Text = this.context.GetTargetFolder();
+            this.comboBoxStartMode.Text = Settings.Default.StartMode;
+            this.checkBoxAutoLaunch.Checked = Settings.Default.AutoLaunch;
         }
         private void Form1_Resize(Object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
-                Hide();
+                this.Hide();
             }
         }
 
         private void notifyIcon1_MouseDoubleClick(Object sender, MouseEventArgs e)
         {
-            LoadSettings();
-            Show();
+            this.LoadSettings();
+            this.Show();
             this.WindowState = FormWindowState.Normal;
         }
 
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
         {
-            Hide();
+            this.Hide();
             this.WindowState = FormWindowState.Minimized;
             e.Cancel = true;
         }
 
         private void Form1_Load(Object sender, EventArgs e)
         {
-            LoadSettings();
+            this.LoadSettings();
         }
 
         private void btnChangeFolder_Click(Object sender, EventArgs e)
         {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                labelTargetFolder.Text = folderBrowserDialog1.SelectedPath;
-                toolTip1.SetToolTip(labelTargetFolder, folderBrowserDialog1.SelectedPath);
+                this.labelTargetFolder.Text = this.folderBrowserDialog1.SelectedPath;
+                this.toolTip1.SetToolTip(this.labelTargetFolder, this.folderBrowserDialog1.SelectedPath);
             }
         }
 
         private void btnDone_Click(Object sender, EventArgs e)
         {
             //Save changes to target location
-            Settings.Default.TargetFolder = labelTargetFolder.Text;
-            context.SetTargetFolder(labelTargetFolder.Text);
+            Settings.Default.TargetFolder = this.labelTargetFolder.Text;
+            this.context.SetTargetFolder(this.labelTargetFolder.Text);
 
             //Save changes to start mode
-            String selected = comboBoxStartMode.Items[comboBoxStartMode.SelectedIndex].ToString();
+            String selected = this.comboBoxStartMode.Items[this.comboBoxStartMode.SelectedIndex].ToString();
             Settings.Default.StartMode = selected;
 
             //Save changes to auto launch option
-            bool autoLaunch = checkBoxAutoLaunch.Checked;
+            bool autoLaunch = this.checkBoxAutoLaunch.Checked;
             //Update registry if autolaunch option changed
-            if (autoLaunch != Settings.Default.AutoLaunch) {
+            if (autoLaunch != Settings.Default.AutoLaunch)
+            {
                 RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                if (checkBoxAutoLaunch.Checked)
+                if (this.checkBoxAutoLaunch.Checked)
                 {
                     rkApp.SetValue(Application.ProductName, Application.ExecutablePath);
                 }
@@ -88,24 +83,25 @@ namespace Windows_Auto_Unzipper
                     rkApp.DeleteValue(Application.ProductName, false);
                 }
             }
-            Settings.Default.AutoLaunch = checkBoxAutoLaunch.Checked;
-            
+            Settings.Default.AutoLaunch = this.checkBoxAutoLaunch.Checked;
+
             Settings.Default.Save();
 
-            Hide();
+            this.Hide();
             this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnCancel_Click(Object sender, EventArgs e)
         {
-            Hide();
+            this.Hide();
             this.WindowState = FormWindowState.Minimized;
         }
 
         private void FormSettings_VisibleChanged(Object sender, EventArgs e)
         {
-            if (this.Visible) {
-                LoadSettings();
+            if (this.Visible)
+            {
+                this.LoadSettings();
             }
         }
     }

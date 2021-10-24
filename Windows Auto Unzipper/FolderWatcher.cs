@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
 using System.Diagnostics;
-using System.Threading;
-using System.IO.Compression;
-using System.Runtime.InteropServices;
+using System.IO;
 using System.Threading.Tasks;
 using Windows_Auto_Unzipper.Properties;
 
@@ -30,19 +25,22 @@ namespace Windows_Auto_Unzipper
                                 | NotifyFilters.Security
                                 | NotifyFilters.Size;
 
-            this.watcher.Created += OnCreated;
+            this.watcher.Created += this.OnCreated;
             this.watcher.Error += OnError;
 
             this.watcher.Filter = "*.zip";
             this.watcher.IncludeSubdirectories = false;
         }
 
-        public void SetTargetFolder(String targetFolder) {
+        public void SetTargetFolder(String targetFolder)
+        {
             this.watcher.Path = @targetFolder;
         }
 
-        public bool Start() {
-            if (!String.IsNullOrEmpty(this.watcher.Path)) {
+        public bool Start()
+        {
+            if (!String.IsNullOrEmpty(this.watcher.Path))
+            {
                 this.watcher.EnableRaisingEvents = true;
                 Settings.Default.LastRunningMode = "Running";
                 Settings.Default.Save();
@@ -51,13 +49,15 @@ namespace Windows_Auto_Unzipper
             return false;
         }
 
-        public void Stop() {
+        public void Stop()
+        {
             this.watcher.EnableRaisingEvents = false;
             Settings.Default.LastRunningMode = "Stopped";
             Settings.Default.Save();
         }
 
-        public bool IsRunning() {
+        public bool IsRunning()
+        {
             return !String.IsNullOrEmpty(this.watcher.Path) && this.watcher.EnableRaisingEvents;
         }
 
@@ -73,8 +73,10 @@ namespace Windows_Auto_Unzipper
         }
 
 
-        private static void OnError(object sender, ErrorEventArgs e) =>
+        private static void OnError(object sender, ErrorEventArgs e)
+        {
             PrintException(e.GetException());
+        }
 
         private static void PrintException(Exception? ex)
         {
@@ -90,7 +92,7 @@ namespace Windows_Auto_Unzipper
 
         public void Dispose()
         {
-            watcher.Dispose();
+            this.watcher.Dispose();
         }
     }
 }
