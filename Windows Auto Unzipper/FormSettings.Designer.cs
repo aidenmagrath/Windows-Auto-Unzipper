@@ -33,10 +33,10 @@ namespace Windows_Auto_Unzipper
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnChangeFolder = new System.Windows.Forms.Button();
-            this.labelTargetFolder = new System.Windows.Forms.Label();
-            this.labelTargetFolderHeader = new System.Windows.Forms.Label();
+            this.directoryBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnChangeDirectory = new System.Windows.Forms.Button();
+            this.labelTargetDirectory = new System.Windows.Forms.Label();
+            this.labelTargetDirectoryHeader = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.labelStartMode = new System.Windows.Forms.Label();
             this.comboBoxStartMode = new System.Windows.Forms.ComboBox();
@@ -48,32 +48,32 @@ namespace Windows_Auto_Unzipper
             // 
             // btnChangeFolder
             // 
-            this.btnChangeFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChangeFolder.Location = new System.Drawing.Point(317, 27);
-            this.btnChangeFolder.Name = "btnChangeFolder";
-            this.btnChangeFolder.Size = new System.Drawing.Size(75, 23);
-            this.btnChangeFolder.TabIndex = 0;
-            this.btnChangeFolder.Text = "Change";
-            this.btnChangeFolder.UseVisualStyleBackColor = true;
-            this.btnChangeFolder.Click += new System.EventHandler(this.btnChangeFolder_Click);
+            this.btnChangeDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeDirectory.Location = new System.Drawing.Point(317, 27);
+            this.btnChangeDirectory.Name = "btnChangeDirectory";
+            this.btnChangeDirectory.Size = new System.Drawing.Size(75, 23);
+            this.btnChangeDirectory.TabIndex = 0;
+            this.btnChangeDirectory.Text = "Change";
+            this.btnChangeDirectory.UseVisualStyleBackColor = true;
+            this.btnChangeDirectory.Click += new System.EventHandler(this.btnChangeDirectory_Click);
             // 
             // labelTargetFolder
             // 
-            this.labelTargetFolder.AutoEllipsis = true;
-            this.labelTargetFolder.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelTargetFolder.Location = new System.Drawing.Point(23, 31);
-            this.labelTargetFolder.Name = "labelTargetFolder";
-            this.labelTargetFolder.Size = new System.Drawing.Size(288, 15);
-            this.labelTargetFolder.TabIndex = 1;
+            this.labelTargetDirectory.AutoEllipsis = true;
+            this.labelTargetDirectory.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelTargetDirectory.Location = new System.Drawing.Point(23, 31);
+            this.labelTargetDirectory.Name = "labelTargetDirectory";
+            this.labelTargetDirectory.Size = new System.Drawing.Size(288, 15);
+            this.labelTargetDirectory.TabIndex = 1;
             // 
             // labelTargetFolderHeader
             // 
-            this.labelTargetFolderHeader.AutoSize = true;
-            this.labelTargetFolderHeader.Location = new System.Drawing.Point(12, 13);
-            this.labelTargetFolderHeader.Name = "labelTargetFolderHeader";
-            this.labelTargetFolderHeader.Size = new System.Drawing.Size(75, 15);
-            this.labelTargetFolderHeader.TabIndex = 2;
-            this.labelTargetFolderHeader.Text = "Target Folder";
+            this.labelTargetDirectoryHeader.AutoSize = true;
+            this.labelTargetDirectoryHeader.Location = new System.Drawing.Point(12, 13);
+            this.labelTargetDirectoryHeader.Name = "labelTargetDirectoryHeader";
+            this.labelTargetDirectoryHeader.Size = new System.Drawing.Size(75, 15);
+            this.labelTargetDirectoryHeader.TabIndex = 2;
+            this.labelTargetDirectoryHeader.Text = "Target Folder";
             // 
             // labelStartMode
             // 
@@ -148,9 +148,9 @@ namespace Windows_Auto_Unzipper
             this.Controls.Add(this.labelAutoLaunch);
             this.Controls.Add(this.comboBoxStartMode);
             this.Controls.Add(this.labelStartMode);
-            this.Controls.Add(this.labelTargetFolderHeader);
-            this.Controls.Add(this.labelTargetFolder);
-            this.Controls.Add(this.btnChangeFolder);
+            this.Controls.Add(this.labelTargetDirectoryHeader);
+            this.Controls.Add(this.labelTargetDirectory);
+            this.Controls.Add(this.btnChangeDirectory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -172,10 +172,10 @@ namespace Windows_Auto_Unzipper
 
         #endregion
 
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Button btnChangeFolder;
-        private System.Windows.Forms.Label labelTargetFolder;
-        private System.Windows.Forms.Label labelTargetFolderHeader;
+        private System.Windows.Forms.FolderBrowserDialog directoryBrowserDialog;
+        private System.Windows.Forms.Button btnChangeDirectory;
+        private System.Windows.Forms.Label labelTargetDirectory;
+        private System.Windows.Forms.Label labelTargetDirectoryHeader;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label labelStartMode;
         private System.Windows.Forms.ComboBox comboBoxStartMode;

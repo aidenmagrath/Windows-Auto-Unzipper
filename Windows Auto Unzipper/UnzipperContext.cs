@@ -18,7 +18,7 @@ namespace Windows_Auto_Unzipper
         private ToolStripMenuItem menuItemSettings;
         private ToolStripMenuItem menuItemExit;
 
-        private string location = UserFolders.GetPath(UserFolder.Downloads);
+        private string targetDirectory = UserFolders.GetPath(UserFolder.Downloads);
 
         public UnzipperContext()
         {
@@ -33,7 +33,7 @@ namespace Windows_Auto_Unzipper
                 Settings.Default.Save();
             }
 
-            this.SetTargetFolder(Settings.Default.TargetFolder);
+            this.SetTargetDirectory(Settings.Default.TargetFolder);
 
             if (Settings.Default.StartMode == "Running" || (Settings.Default.StartMode == "Remember from last session" && Settings.Default.LastRunningMode == "Running"))
             {
@@ -111,12 +111,12 @@ namespace Windows_Auto_Unzipper
             Settings.Default.Save();
         }
 
-        public void SetTargetFolder(String location)
+        public void SetTargetDirectory(String location)
         {
-            this.location = location;
+            this.targetDirectory = location;
             if (this.folderWatcher != null)
             {
-                this.folderWatcher.SetTargetFolder(location);
+                this.folderWatcher.SetTargetDirectory(location);
             }
             else
             {
@@ -134,7 +134,7 @@ namespace Windows_Auto_Unzipper
 
         public String GetTargetFolder()
         {
-            return this.location;
+            return this.targetDirectory;
         }
 
         private void OnApplicationExit(object sender, EventArgs e)

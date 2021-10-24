@@ -18,7 +18,7 @@ namespace Windows_Auto_Unzipper
 
         private void LoadSettings()
         {
-            this.labelTargetFolder.Text = this.context.GetTargetFolder();
+            this.labelTargetDirectory.Text = this.context.GetTargetFolder();
             this.comboBoxStartMode.Text = Settings.Default.StartMode;
             this.checkBoxAutoLaunch.Checked = Settings.Default.AutoLaunch;
         }
@@ -49,20 +49,20 @@ namespace Windows_Auto_Unzipper
             this.LoadSettings();
         }
 
-        private void btnChangeFolder_Click(Object sender, EventArgs e)
+        private void btnChangeDirectory_Click(Object sender, EventArgs e)
         {
-            if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            if (this.directoryBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                this.labelTargetFolder.Text = this.folderBrowserDialog1.SelectedPath;
-                this.toolTip1.SetToolTip(this.labelTargetFolder, this.folderBrowserDialog1.SelectedPath);
+                this.labelTargetDirectory.Text = this.directoryBrowserDialog.SelectedPath;
+                this.toolTip1.SetToolTip(this.labelTargetDirectory, this.directoryBrowserDialog.SelectedPath);
             }
         }
 
         private void btnDone_Click(Object sender, EventArgs e)
         {
             //Save changes to target location
-            Settings.Default.TargetFolder = this.labelTargetFolder.Text;
-            this.context.SetTargetFolder(this.labelTargetFolder.Text);
+            Settings.Default.TargetFolder = this.labelTargetDirectory.Text;
+            this.context.SetTargetDirectory(this.labelTargetDirectory.Text);
 
             //Save changes to start mode
             String selected = this.comboBoxStartMode.Items[this.comboBoxStartMode.SelectedIndex].ToString();

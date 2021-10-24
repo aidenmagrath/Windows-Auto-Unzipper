@@ -32,9 +32,9 @@ namespace Windows_Auto_Unzipper
             this.watcher.IncludeSubdirectories = false;
         }
 
-        public void SetTargetFolder(String targetFolder)
+        public void SetTargetDirectory(String targetDirectory)
         {
-            this.watcher.Path = @targetFolder;
+            this.watcher.Path = targetDirectory;
         }
 
         public bool Start()
