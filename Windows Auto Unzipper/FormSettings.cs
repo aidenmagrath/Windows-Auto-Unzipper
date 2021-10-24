@@ -74,14 +74,14 @@ namespace Windows_Auto_Unzipper
             //Update registry if autolaunch option changed
             if (autoLaunch != Settings.Default.AutoLaunch)
             {
-                RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                if (this.checkBoxAutoLaunch.Checked)
+                
+                if (autoLaunch)
                 {
-                    rkApp.SetValue(Application.ProductName, Application.ExecutablePath);
+                    RegistryHelper.EnableAutoRun();
                 }
                 else
                 {
-                    rkApp.DeleteValue(Application.ProductName, false);
+                    RegistryHelper.DisableAutoRun();
                 }
             }
             Settings.Default.AutoLaunch = this.checkBoxAutoLaunch.Checked;
