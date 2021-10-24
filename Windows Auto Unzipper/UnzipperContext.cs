@@ -26,7 +26,7 @@ namespace Windows_Auto_Unzipper
         public UnzipperContext()
         {
             trayIcon = new NotifyIcon();
-            trayIcon.Icon = Windows_Auto_Unzipper.Properties.Resources.ZipIcon;
+            trayIcon.Icon = Windows_Auto_Unzipper.Properties.Resources.icon;
             trayIcon.Visible = true;
             trayIcon.DoubleClick += (sender, e) => ShowSettings();
 

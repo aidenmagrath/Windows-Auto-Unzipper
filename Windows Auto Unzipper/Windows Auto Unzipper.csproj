@@ -5,7 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>Windows_Auto_Unzipper</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>Resources\ZIP_File_24265.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     <StartupObject></StartupObject>
     <Description>Automatically unzip files that are added to your downloads folder or any other location</Description>
     <Copyright>Copyright 2021 Aiden Magrath</Copyright>
@@ -41,10 +41,6 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="..\..\..\..\Pictures\icon2.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 
