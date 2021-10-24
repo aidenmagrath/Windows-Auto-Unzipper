@@ -15,6 +15,7 @@ namespace Windows_Auto_Unzipper
     public partial class FormSettings : System.Windows.Forms.Form
     {
         private UnzipperContext context;
+
         public FormSettings(ApplicationContext context)
         {
             this.context = (UnzipperContext)context;
@@ -22,8 +23,11 @@ namespace Windows_Auto_Unzipper
 
         }
 
-
-
+        private void LoadSettings() {
+            labelTargetFolder.Text = this.context.GetTargetFolder();
+            comboBoxStartMode.Text = Settings.Default.StartMode;
+            checkBoxAutoLaunch.Checked = Settings.Default.AutoLaunch;
+        }
         private void Form1_Resize(Object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
@@ -34,6 +38,7 @@ namespace Windows_Auto_Unzipper
 
         private void notifyIcon1_MouseDoubleClick(Object sender, MouseEventArgs e)
         {
+            LoadSettings();
             Show();
             this.WindowState = FormWindowState.Normal;
         }
@@ -47,43 +52,60 @@ namespace Windows_Auto_Unzipper
 
         private void Form1_Load(Object sender, EventArgs e)
         {
-            labelTargetFolder.Text = this.context.GetTargetFolder();
-            comboBoxStartMode.Text = Settings.Default.StartMode;
-            checkBoxAutoLaunch.Checked = Settings.Default.AutoLaunch;
+            LoadSettings();
         }
 
         private void btnChangeFolder_Click(Object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                String location = folderBrowserDialog1.SelectedPath;
-                labelTargetFolder.Text = location;
-                toolTip1.SetToolTip(labelTargetFolder, location);
-                Settings.Default.TargetFolder = location;
-                Settings.Default.Save();
-                context.SetTargetFolder(folderBrowserDialog1.SelectedPath);
+                labelTargetFolder.Text = folderBrowserDialog1.SelectedPath;
+                toolTip1.SetToolTip(labelTargetFolder, folderBrowserDialog1.SelectedPath);
             }
         }
 
-        private void comboBoxStartMode_SelectedIndexChanged(Object sender, EventArgs e)
+        private void btnDone_Click(Object sender, EventArgs e)
         {
+            //Save changes to target location
+            Settings.Default.TargetFolder = labelTargetFolder.Text;
+            context.SetTargetFolder(labelTargetFolder.Text);
+
+            //Save changes to start mode
             String selected = comboBoxStartMode.Items[comboBoxStartMode.SelectedIndex].ToString();
             Settings.Default.StartMode = selected;
+
+            //Save changes to auto launch option
+            bool autoLaunch = checkBoxAutoLaunch.Checked;
+            //Update registry if autolaunch option changed
+            if (autoLaunch != Settings.Default.AutoLaunch) {
+                RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (checkBoxAutoLaunch.Checked)
+                {
+                    rkApp.SetValue(Application.ProductName, Application.ExecutablePath);
+                }
+                else
+                {
+                    rkApp.DeleteValue(Application.ProductName, false);
+                }
+            }
+            Settings.Default.AutoLaunch = checkBoxAutoLaunch.Checked;
+            
             Settings.Default.Save();
+
+            Hide();
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void checkBoxAutoLaunch_CheckedChanged(Object sender, EventArgs e)
+        private void btnCancel_Click(Object sender, EventArgs e)
         {
-            Settings.Default.AutoLaunch = checkBoxAutoLaunch.Checked;
-            Settings.Default.Save();
-            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if (checkBoxAutoLaunch.Checked)
-            {
-                rkApp.SetValue(Application.ProductName, Application.ExecutablePath);
-            }
-            else
-            {
-                rkApp.DeleteValue(Application.ProductName, false);
+            Hide();
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void FormSettings_VisibleChanged(Object sender, EventArgs e)
+        {
+            if (this.Visible) {
+                LoadSettings();
             }
         }
     }

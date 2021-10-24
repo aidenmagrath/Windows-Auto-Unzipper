@@ -42,10 +42,13 @@ namespace Windows_Auto_Unzipper
             this.comboBoxStartMode = new System.Windows.Forms.ComboBox();
             this.labelAutoLaunch = new System.Windows.Forms.Label();
             this.checkBoxAutoLaunch = new System.Windows.Forms.CheckBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnDone = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChangeFolder
             // 
+            this.btnChangeFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeFolder.Location = new System.Drawing.Point(317, 27);
             this.btnChangeFolder.Name = "btnChangeFolder";
             this.btnChangeFolder.Size = new System.Drawing.Size(75, 23);
@@ -93,7 +96,6 @@ namespace Windows_Auto_Unzipper
             this.comboBoxStartMode.Name = "comboBoxStartMode";
             this.comboBoxStartMode.Size = new System.Drawing.Size(288, 23);
             this.comboBoxStartMode.TabIndex = 4;
-            this.comboBoxStartMode.SelectedIndexChanged += new System.EventHandler(this.comboBoxStartMode_SelectedIndexChanged);
             // 
             // labelAutoLaunch
             // 
@@ -112,13 +114,36 @@ namespace Windows_Auto_Unzipper
             this.checkBoxAutoLaunch.Size = new System.Drawing.Size(15, 14);
             this.checkBoxAutoLaunch.TabIndex = 6;
             this.checkBoxAutoLaunch.UseVisualStyleBackColor = true;
-            this.checkBoxAutoLaunch.CheckedChanged += new System.EventHandler(this.checkBoxAutoLaunch_CheckedChanged);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(317, 184);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnDone
+            // 
+            this.btnDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDone.Location = new System.Drawing.Point(235, 184);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(75, 23);
+            this.btnDone.TabIndex = 8;
+            this.btnDone.Text = "Done";
+            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 281);
+            this.ClientSize = new System.Drawing.Size(404, 221);
+            this.Controls.Add(this.btnDone);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.checkBoxAutoLaunch);
             this.Controls.Add(this.labelAutoLaunch);
             this.Controls.Add(this.comboBoxStartMode);
@@ -137,6 +162,7 @@ namespace Windows_Auto_Unzipper
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.VisibleChanged += new System.EventHandler(this.FormSettings_VisibleChanged);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,6 +181,8 @@ namespace Windows_Auto_Unzipper
         private System.Windows.Forms.ComboBox comboBoxStartMode;
         private System.Windows.Forms.Label labelAutoLaunch;
         private System.Windows.Forms.CheckBox checkBoxAutoLaunch;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnDone;
     }
 }
 
