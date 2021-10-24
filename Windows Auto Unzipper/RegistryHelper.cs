@@ -8,13 +8,19 @@ namespace Windows_Auto_Unzipper
         public static void EnableAutoRun()
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            key.SetValue(Application.ProductName, Application.ExecutablePath);
+            if (IsAutoRunEnabled(key))
+            {
+                key.SetValue(Application.ProductName, Application.ExecutablePath);
+            }
         }
 
         public static void DisableAutoRun()
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            key.DeleteValue(Application.ProductName);
+            if (IsAutoRunEnabled(key)) {
+                key.DeleteValue(Application.ProductName);
+            }
+            
         }
 
         public static bool IsAutoRunEnabled()
