@@ -63,12 +63,7 @@ namespace Windows_Auto_Unzipper
 
         private void OnCreated(object sender, FileSystemEventArgs e)
         {
-            //Can possibly use e.Directory?
-            string value = $"Created: {e.FullPath}";
-            Debug.WriteLine(value);
             String extractDir = this.context.GetTargetFolder() + "\\" + System.IO.Path.GetFileNameWithoutExtension(this.context.GetTargetFolder() + "\\" + e.Name);
-            Debug.WriteLine("ExtractDir: " + extractDir);
-
             Task unzipTask = Task.Run(() => Unzipper.UnzipAndDelete(e.FullPath, extractDir));
         }
 
