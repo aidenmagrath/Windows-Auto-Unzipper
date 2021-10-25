@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_275DCC83FD2642E7BAE4903B3AFF3957"
+        "MsmKey" = "8:_A746E260AFE345D0A45E0F1C8E41695B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A746E260AFE345D0A45E0F1C8E41695B"
+        "MsmKey" = "8:_AABC3D5D4F5D42CDB12CA13F4F9B2D80"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -75,6 +75,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -106,10 +114,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_275DCC83FD2642E7BAE4903B3AFF3957"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AABC3D5D4F5D42CDB12CA13F4F9B2D80"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\icon2.ico"
-            "TargetName" = "8:icon.ico"
+            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\Unzipper Icons\\icon-128x128.ico"
+            "TargetName" = "8:icon-128x128.ico"
             "Tag" = "8:"
             "Folder" = "8:_574BCFE8CE7B4A2FAB3A9B7B5DF5C7AC"
             "Condition" = "8:"
@@ -200,7 +208,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Automatically extract zip files added to a target directory"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_275DCC83FD2642E7BAE4903B3AFF3957"
+        "ARPPRODUCTICON" = "8:_AABC3D5D4F5D42CDB12CA13F4F9B2D80"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -314,7 +322,7 @@
             "Target" = "8:_A746E260AFE345D0A45E0F1C8E41695B"
             "Folder" = "8:_5F4153CC1CED49C5BAEE6A91788E9DC6"
             "WorkingFolder" = "8:_574BCFE8CE7B4A2FAB3A9B7B5DF5C7AC"
-            "Icon" = "8:_275DCC83FD2642E7BAE4903B3AFF3957"
+            "Icon" = "8:_AABC3D5D4F5D42CDB12CA13F4F9B2D80"
             "Feature" = "8:"
             }
         }
