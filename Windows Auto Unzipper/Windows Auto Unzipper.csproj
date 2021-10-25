@@ -5,7 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>Windows_Auto_Unzipper</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\icon-128x128.ico</ApplicationIcon>
     <StartupObject></StartupObject>
     <Description>Automatically unzip files that are added to your downloads folder or any other location</Description>
     <Copyright>Copyright 2021 Aiden Magrath</Copyright>

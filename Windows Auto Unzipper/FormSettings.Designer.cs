@@ -46,7 +46,7 @@ namespace Windows_Auto_Unzipper
             this.btnDone = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnChangeFolder
+            // btnChangeDirectory
             // 
             this.btnChangeDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeDirectory.Location = new System.Drawing.Point(317, 27);
@@ -57,7 +57,7 @@ namespace Windows_Auto_Unzipper
             this.btnChangeDirectory.UseVisualStyleBackColor = true;
             this.btnChangeDirectory.Click += new System.EventHandler(this.btnChangeDirectory_Click);
             // 
-            // labelTargetFolder
+            // labelTargetDirectory
             // 
             this.labelTargetDirectory.AutoEllipsis = true;
             this.labelTargetDirectory.ForeColor = System.Drawing.SystemColors.GrayText;
@@ -66,7 +66,7 @@ namespace Windows_Auto_Unzipper
             this.labelTargetDirectory.Size = new System.Drawing.Size(288, 15);
             this.labelTargetDirectory.TabIndex = 1;
             // 
-            // labelTargetFolderHeader
+            // labelTargetDirectoryHeader
             // 
             this.labelTargetDirectoryHeader.AutoSize = true;
             this.labelTargetDirectoryHeader.Location = new System.Drawing.Point(12, 13);
