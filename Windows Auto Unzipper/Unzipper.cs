@@ -8,7 +8,7 @@ namespace Windows_Auto_Unzipper
 {
     class Unzipper
     {
-        public static bool UnzipAndDelete(string fullPath, string extractDir)
+        public static bool Unzip(string fullPath, string extractDir)
         {
             if (IsFileClosed(fullPath, true))
             {
