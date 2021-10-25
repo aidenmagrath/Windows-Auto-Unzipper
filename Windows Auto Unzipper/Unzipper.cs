@@ -3,6 +3,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Windows_Auto_Unzipper.Properties;
 
 namespace Windows_Auto_Unzipper
 {
@@ -14,7 +15,11 @@ namespace Windows_Auto_Unzipper
             {
                 Directory.CreateDirectory(extractDir);
                 ZipFile.ExtractToDirectory(fullPath, extractDir);
-                File.Delete(fullPath);
+                
+                if (Settings.Default.AutoDelete) {
+                    File.Delete(fullPath);
+                }
+                
                 RefreshWindowsExplorer();
                 return true;
             }

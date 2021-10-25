@@ -70,5 +70,17 @@ namespace Windows_Auto_Unzipper.Properties {
                 this["AutoLaunch"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AutoDelete {
+            get {
+                return ((bool)(this["AutoDelete"]));
+            }
+            set {
+                this["AutoDelete"] = value;
+            }
+        }
     }
 }
