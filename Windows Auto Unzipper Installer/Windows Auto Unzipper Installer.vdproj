@@ -52,10 +52,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.5.0.x86"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.5.0.x86"
                     {
-                    "Name" = "8:.NET Runtime 5.0.9 (x86)"
-                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.5.0.x86"
+                    "Name" = "8:.NET Desktop Runtime 5.0.9 (x86)"
+                    "ProductCode" = "8:Microsoft.NetCore.DesktopRuntime.5.0.x86"
                     }
                 }
             }
@@ -82,6 +82,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.5.0.x86"
+                    {
+                    "Name" = "8:.NET Desktop Runtime 5.0.9 (x86)"
+                    "ProductCode" = "8:Microsoft.NetCore.DesktopRuntime.5.0.x86"
+                    }
+                }
             }
         }
     }
@@ -191,7 +199,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Windows Auto Unzipper"
         "ProductCode" = "8:{5172C9C1-DA4D-48ED-9894-559589824C96}"
-        "PackageCode" = "8:{340C9C22-1027-4938-BB2A-71AB732CDF9F}"
+        "PackageCode" = "8:{C0B34E98-9315-4357-A83D-34B4E2245032}"
         "UpgradeCode" = "8:{0514BF5B-0D7B-4998-B84A-3BC81C308D76}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -726,7 +734,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A746E260AFE345D0A45E0F1C8E41695B"
             {
-            "SourcePath" = "8:..\\Windows Auto Unzipper\\obj\\Debug\\net5.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Windows Auto Unzipper\\obj\\Release\\net5.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_574BCFE8CE7B4A2FAB3A9B7B5DF5C7AC"
