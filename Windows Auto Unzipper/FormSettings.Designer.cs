@@ -44,6 +44,8 @@ namespace Windows_Auto_Unzipper
             this.checkBoxAutoLaunch = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDone = new System.Windows.Forms.Button();
+            this.labelAutoDelete = new System.Windows.Forms.Label();
+            this.checkBoxAutoDelete = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnChangeDirectory
@@ -137,11 +139,31 @@ namespace Windows_Auto_Unzipper
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
+            // labelAutoDelete
+            // 
+            this.labelAutoDelete.AutoSize = true;
+            this.labelAutoDelete.Location = new System.Drawing.Point(12, 136);
+            this.labelAutoDelete.Name = "labelAutoDelete";
+            this.labelAutoDelete.Size = new System.Drawing.Size(218, 15);
+            this.labelAutoDelete.TabIndex = 9;
+            this.labelAutoDelete.Text = "Automatically delete file after extraction";
+            // 
+            // checkBoxAutoDelete
+            // 
+            this.checkBoxAutoDelete.AutoSize = true;
+            this.checkBoxAutoDelete.Location = new System.Drawing.Point(296, 137);
+            this.checkBoxAutoDelete.Name = "checkBoxAutoDelete";
+            this.checkBoxAutoDelete.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAutoDelete.TabIndex = 10;
+            this.checkBoxAutoDelete.UseVisualStyleBackColor = true;
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 221);
+            this.Controls.Add(this.checkBoxAutoDelete);
+            this.Controls.Add(this.labelAutoDelete);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.checkBoxAutoLaunch);
@@ -183,6 +205,8 @@ namespace Windows_Auto_Unzipper
         private System.Windows.Forms.CheckBox checkBoxAutoLaunch;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Label labelAutoDelete;
+        private System.Windows.Forms.CheckBox checkBoxAutoDelete;
     }
 }
 

@@ -19,9 +19,11 @@ namespace Windows_Auto_Unzipper
         private void LoadSettings()
         {
             this.labelTargetDirectory.Text = this.context.GetTargetFolder();
+            this.toolTipTargetDirectory.SetToolTip(this.labelTargetDirectory, this.labelTargetDirectory.Text);
             this.comboBoxStartMode.Text = Settings.Default.StartMode;
             this.checkBoxAutoLaunch.Checked = Settings.Default.AutoLaunch;
-            this.toolTipTargetDirectory.SetToolTip(this.labelTargetDirectory, this.labelTargetDirectory.Text);
+            this.checkBoxAutoDelete.Checked = Settings.Default.AutoDelete;
+            
         }
         private void Form1_Resize(Object sender, EventArgs e)
         {
@@ -85,6 +87,9 @@ namespace Windows_Auto_Unzipper
                 }
             }
             Settings.Default.AutoLaunch = this.checkBoxAutoLaunch.Checked;
+
+            //Save changes to auto delete
+            Settings.Default.AutoDelete = checkBoxAutoDelete.Checked;
 
             Settings.Default.Save();
 
