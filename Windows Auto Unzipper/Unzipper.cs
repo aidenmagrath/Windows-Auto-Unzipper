@@ -6,8 +6,18 @@ using System.Threading;
 
 namespace Windows_Auto_Unzipper
 {
+    /// <summary>
+    /// Used to unzip/extract zip files
+    /// </summary>
     class Unzipper
     {
+        /// <summary>
+        /// Unzips/extracts a zip file to a directory and optionally deletes the zip file
+        /// </summary>
+        /// <param name="fullPath">The location of the source archive</param>
+        /// <param name="extractDir">The location the archive will be extracted to</param>
+        /// <param name="deleteWhenDone">Should the source archive be deleted after it has been unzipped</param>
+        /// <returns>Returns true if successful</returns>
         public static bool Unzip(string fullPath, string extractDir, bool deleteWhenDone)
         {
             if (IsFileClosed(fullPath, true))
@@ -25,6 +35,12 @@ namespace Windows_Auto_Unzipper
             return false;
         }
 
+        /// <summary>
+        /// Checks if a file is closed
+        /// </summary>
+        /// <param name="filepath">The path of the file to check</param>
+        /// <param name="wait">If true, wait for a short delay and try again</param>
+        /// <returns>Returns true if file is closed</returns>
         public static bool IsFileClosed(string filepath, bool wait)
         {
             bool fileClosed = false;
@@ -57,11 +73,16 @@ namespace Windows_Auto_Unzipper
             return fileClosed;
         }
 
-        [DllImport("Shell32.dll")]
-        private static extern int SHChangeNotify(int eventId, int flags, IntPtr item1, IntPtr item2);
-        public static void RefreshWindowsExplorer()
+        /// <summary>
+        /// Refresh any open windows explorer windows to show changes in directory
+        /// </summary>
+        private static void RefreshWindowsExplorer()
         {
             SHChangeNotify(0x8000000, 0x1000, IntPtr.Zero, IntPtr.Zero);
         }
+
+        [DllImport("Shell32.dll")]
+        private static extern int SHChangeNotify(int eventId, int flags, IntPtr item1, IntPtr item2);
+        
     }
 }
