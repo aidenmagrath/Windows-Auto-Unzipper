@@ -6,6 +6,7 @@ namespace Windows_Auto_Unzipper
     /// <summary>
     /// Utility class used to retrieve paths to common user directories such as Desktop, Downloads, Douments, Music, etc.
     /// </summary>
+    /// <remarks>Based on code from Ray Koopa's  <see href="https:///www.codeproject.com/Articles/878605/Getting-all-Special-Folders-in-NET">Code Project</see></remarks>
     class UserFolders
     {
         private static string[] _knownFolderGuids = new string[]
