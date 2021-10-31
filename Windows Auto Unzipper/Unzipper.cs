@@ -3,20 +3,19 @@ using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
 using System.Threading;
-using Windows_Auto_Unzipper.Properties;
 
 namespace Windows_Auto_Unzipper
 {
     class Unzipper
     {
-        public static bool Unzip(string fullPath, string extractDir)
+        public static bool Unzip(string fullPath, string extractDir, bool deleteWhenDone)
         {
             if (IsFileClosed(fullPath, true))
             {
                 Directory.CreateDirectory(extractDir);
                 ZipFile.ExtractToDirectory(fullPath, extractDir);
                 
-                if (Settings.Default.AutoDelete) {
+                if (deleteWhenDone) {
                     File.Delete(fullPath);
                 }
                 
