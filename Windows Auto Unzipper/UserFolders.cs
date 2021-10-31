@@ -3,6 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace Windows_Auto_Unzipper
 {
+    /// <summary>
+    /// Utility class used to retrieve paths to common user directories such as Desktop, Downloads, Douments, Music, etc.
+    /// </summary>
     class UserFolders
     {
         private static string[] _knownFolderGuids = new string[]
