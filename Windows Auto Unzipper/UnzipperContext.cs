@@ -7,6 +7,9 @@ using Windows_Auto_Unzipper.Properties;
 
 namespace Windows_Auto_Unzipper
 {
+    /// <summary>
+    /// Application context for the program
+    /// </summary>
     class UnzipperContext : ApplicationContext
     {
         private Form settingsForm;
@@ -18,6 +21,9 @@ namespace Windows_Auto_Unzipper
         private ToolStripMenuItem menuItemSettings;
         private ToolStripMenuItem menuItemExit;
 
+        /// <summary>
+        /// Stores the directory that the folder watcher is targetting
+        /// </summary>
         private string targetDirectory = UserFolders.GetPath(UserFolder.Downloads);
 
         /// <summary>
