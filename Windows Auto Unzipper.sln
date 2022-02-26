@@ -3,18 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windows Auto Unzipper", "Windows Auto Unzipper\Windows Auto Unzipper.csproj", "{6600B664-966B-42AC-B010-84EE79FA5200}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsAutoUnzipper", "Windows Auto Unzipper\WindowsAutoUnzipper.csproj", "{6600B664-966B-42AC-B010-84EE79FA5200}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6600B664-966B-42AC-B010-84EE79FA5200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6600B664-966B-42AC-B010-84EE79FA5200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6600B664-966B-42AC-B010-84EE79FA5200}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6600B664-966B-42AC-B010-84EE79FA5200}.Debug|x86.Build.0 = Debug|Any CPU
 		{6600B664-966B-42AC-B010-84EE79FA5200}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6600B664-966B-42AC-B010-84EE79FA5200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6600B664-966B-42AC-B010-84EE79FA5200}.Release|x86.ActiveCfg = Release|Any CPU
+		{6600B664-966B-42AC-B010-84EE79FA5200}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
