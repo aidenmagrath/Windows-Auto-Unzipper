@@ -105,7 +105,7 @@ namespace Windows_Auto_Unzipper
             PrintException(e.GetException());
         }
 
-        private static void PrintException(Exception? ex)
+        private static void PrintException(Exception ex)
         {
             if (ex != null)
             {
